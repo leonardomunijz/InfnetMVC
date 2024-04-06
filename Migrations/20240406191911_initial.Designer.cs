@@ -11,7 +11,7 @@ using ProjetoMVCEntityIdenty.DAL;
 namespace InfnetMVC.Migrations
 {
     [DbContext(typeof(InfnetDbContext))]
-    [Migration("20240406174617_initial")]
+    [Migration("20240406191911_initial")]
     partial class initial
     {
         /// <inheritdoc />
