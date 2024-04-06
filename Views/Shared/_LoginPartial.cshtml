@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ProjetoMVCEntityIdenty.ViewModels
+@model LoginViewModel
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form asp-controller="Account" asp-action="Logout" method="post" class="form-check-inline" style="display: flex;">
+        <p style="margin-right: 14px;">Olá, @UserManager.GetUserName(User)! </p>
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+}
+else
+{
+    <form asp-controller="Account" asp-action="Login" method="post" class="form-inline" style="display: flex;">
+        <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder="nome@exemplo.com" required style="margin-right: 10px;"/>
+        <input asp-for="Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="senha" required style="margin-right: 10px;" />
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+
+}
